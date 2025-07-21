@@ -1,6 +1,6 @@
 <header>
       <div class="header-area">
-        <a href="" class="header-area-left">B7Store!</a>
+        <a href="" class="header-area-left">B7Store</a>
         <div class="header-area-right">
           <a href="login.html" class="my-account">
             <img src="assets/icons/userIcon.png" />
