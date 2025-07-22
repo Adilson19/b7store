@@ -43,12 +43,7 @@
           </div>
           <div class="password-area">
             <div class="password-label">Senha</div>
-            <div class="password-input-area">
-              <input type="password" name="password"
-                class="@error('password') is-invalid @enderror"
-                placeholder="Digite a sua senha" value="{{ @old('senha') }}" />
-              <img id="eyeIcon" src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
-            </div>
+            <x-form.password-input name="password_confirmation" placeholder="Digite sua senha" id="confirmeSenha_confirmation" />
               @error('password')
                 <div class="error">
                     {{ $message }}
@@ -58,10 +53,7 @@
           </div>
           <div class="password-area">
             <div class="password-label">Confirme sua Senha</div>
-            <div class="password-input-area">
-              <input type="password" name="password_confirmation" placeholder="Digite a sua senha" />
-              <img id="eyeIcon" src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
-            </div>
+                <x-form.password-input name="password_confirmation" placeholder="Digite sua senha" id="confirmeSenha_confirmation" />
           </div>
           <button class="login-button">Cadastrar</button>
         </form>
