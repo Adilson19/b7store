@@ -21,7 +21,9 @@
             @csrf
             <div class="name-area">
                 <div class="name-label">Nome</div>
-                <input type="text" name="name" placeholder="Digite o seu nome" value="{{ @old('name') }}"/>
+                <input type="text" class="@error('name') is-invalid @enderror"
+                    name="name" placeholder="Digite o seu nome"
+                    value="{{ @old('name') }}"/>
                 @error('name')
                     <div class="error">
                         {{ $message }}
@@ -30,7 +32,9 @@
             </div>
           <div class="email-area">
             <div class="email-label">E-mail</div>
-            <input type="email" placeholder="Digite o seu e-mail" value="{{ @old('email') }}"/>
+            <input type="email" name="email"
+            class="@error('email') is-invalid @enderror"
+            placeholder="Digite o seu e-mail" value="{{ @old('email') }}"/>
                 @error('email')
                     <div class="error">
                         {{ $message }}
@@ -40,7 +44,9 @@
           <div class="password-area">
             <div class="password-label">Senha</div>
             <div class="password-input-area">
-              <input type="password" name="password" placeholder="Digite a sua senha" value="{{ @old('senha') }}" />
+              <input type="password" name="password"
+                class="@error('password') is-invalid @enderror"
+                placeholder="Digite a sua senha" value="{{ @old('senha') }}" />
               <img id="eyeIcon" src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
             </div>
               @error('password')
