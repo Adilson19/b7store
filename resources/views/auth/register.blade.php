@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="assets/loginSignUpStyle.css" />
 
-    <title>B7Store - Cadastre-se</title>
+    <title>B7Store - Login</title>
   </head>
 
   <body>
@@ -19,32 +19,39 @@
         </div>
         <form method="POST" action={{ route('register_action') }}>
             @csrf
-            <div>
-                @if ($errors->any())
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                @endif
+            <div class="name-area">
+                <div class="name-label">Nome</div>
+                <input type="text" name="name" placeholder="Digite o seu nome" value="{{ @old('name') }}"/>
+                @error('name')
+                    <div class="error">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
-          <div class="name-area">
-            <div class="name-label">Nome</div>
-            <input type="text" name="name" placeholder="Digite o seu nome" />
-          </div>
           <div class="email-area">
             <div class="email-label">E-mail</div>
-            <input type="email" name="email" placeholder="Digite o seu e-mail" />
+            <input type="email" placeholder="Digite o seu e-mail" value="{{ @old('email') }}"/>
+                @error('email')
+                    <div class="error">
+                        {{ $message }}
+                    </div>
+                @enderror
           </div>
           <div class="password-area">
             <div class="password-label">Senha</div>
             <div class="password-input-area">
-              <input type="password" name="password" placeholder="Digite a sua senha" />
+              <input type="password" name="password" placeholder="Digite a sua senha" value="{{ @old('senha') }}" />
               <img id="eyeIcon" src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
             </div>
+              @error('password')
+                <div class="error">
+                    {{ $message }}
+                </div>
+              @enderror
+
           </div>
           <div class="password-area">
-            <div class="password-label">Confirme sua senha</div>
+            <div class="password-label">Confirme sua Senha</div>
             <div class="password-input-area">
               <input type="password" name="password_confirmation" placeholder="Digite a sua senha" />
               <img id="eyeIcon" src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
@@ -62,6 +69,6 @@
         comunicações via e-mail e push de todos os nossos parceiros.
       </div>
     </div>
-    <x-base.footer />
+    <x-base.footer/>
   </body>
 </html>
