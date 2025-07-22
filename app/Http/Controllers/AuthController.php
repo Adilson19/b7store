@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\RegisterRequest;
 
 class AuthController extends Controller
 {
@@ -12,7 +13,8 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function register_action(Request $request){
+    public function register_action(RegisterRequest $request){
+        echo "O codigo chegou ate aqui";
         dd($request);
     }
 }
