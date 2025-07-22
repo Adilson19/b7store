@@ -36,7 +36,7 @@
           <button class="login-button">Cadastrar</button>
         </form>
         <div class="register-area">
-          Já tem cadastro? <a href="login.html">Fazer Login</a>
+          Já tem cadastro? <a href="{{ route('login') }}">Fazer Login</a>
         </div>
       </div>
       <div class="terms">

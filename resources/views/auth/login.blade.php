@@ -35,7 +35,7 @@
           <button class="login-button">Entrar</button>
         </form>
         <div class="register-area">
-          Ainda não tem cadastro? <a href="singUp.html">Cadastre-se</a>
+          Ainda não tem cadastro? <a href="{{ route('register') }}">Cadastre-se</a>
         </div>
       </div>
       <div class="terms">
