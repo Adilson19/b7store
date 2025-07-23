@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //  Adicionando o relacionamento entre a tabela User com a tabela State
-            $table->foreignIdFor(State::class);
+            $table->foreignIdFor(State::class)->nullable();
         });
     }
 
