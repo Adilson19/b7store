@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="assets/loginSignUpStyle.css" />
 
-    <title>B7Store - Login</title>
+    <title>B7Store - Cadastra-se</title>
   </head>
 
   <body>

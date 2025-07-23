@@ -21,6 +21,13 @@ class AuthController extends Controller
         //  Criptografando a senha do usuario
         $userData['password'] = Hash::make($userData['password']);
         $user = User::create($userData);
-        dd($userData);
+
+        Auth::loginUsingId($user->id);
+        
+
+    }
+
+    public function state_action(Request $request){
+        dd($request);
     }
 }
