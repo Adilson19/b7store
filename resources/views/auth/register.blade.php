@@ -43,7 +43,7 @@
           </div>
           <div class="password-area">
             <div class="password-label">Senha</div>
-            <x-form.password-input name="password_confirmation" placeholder="Digite sua senha" id="confirmeSenha_confirmation" />
+            <x-form.password-input name="password" placeholder="Digite sua senha" id="confirmeSenha" />
               @error('password')
                 <div class="error">
                     {{ $message }}
