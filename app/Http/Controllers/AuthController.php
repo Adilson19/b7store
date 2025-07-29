@@ -47,10 +47,14 @@ class AuthController extends Controller
         // Se tiver o usuario
         $user = Auth::user();
         $user->state_id = $stateRegister->id;
-        //  Vai salvar 
+        //  Vai salvar
         $user->save();
         //  Vai redirecionar para a home
         return redirect()->route('home');
+    }
+
+    public function login_action(Request $request){
+        dd($request);
     }
 }
 
