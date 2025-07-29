@@ -15,8 +15,10 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
+    $data['categories'] = [];
+    $data['states'] = [];
+    return view('home', $data);
+})->name('home');
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'register_action'])->name('register_action');
