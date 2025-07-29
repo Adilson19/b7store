@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Concerns\InteractsWithInput\only;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -53,8 +54,16 @@ class AuthController extends Controller
         return redirect()->route('home');
     }
 
-    public function login_action(Request $request){
-        dd($request);
+    public function login_action(LoginRequest $request){
+        $loginData = $request->only(['email', 'password']);
+
+        if(!Auth::attempt($loginData)){
+
+            $data['message'] = 'Usuario ou senha invalidos';
+            $data['email'] = $loginData['email'];
+            return view('auth.login', $data);
+        }
+        return redirect()->route('home');
     }
 }
 

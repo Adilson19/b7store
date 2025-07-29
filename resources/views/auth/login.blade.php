@@ -18,17 +18,32 @@
           Use as suas credenciais para realizar o Login.
         </div>
         <form method="POST" action="{{ route('login_action') }}">
+            @if($message)
+                <p class="error">{{ $message }}</p>
+            @endif
+
             @csrf
           <div class="email-area">
             <div class="email-label">E-mail</div>
-            <input type="email" name="email" placeholder="Digite o seu e-mail" />
+            <input type="email" required name="email" placeholder="Digite o seu e-mail"
+                value={{ $email ?? '' }} />
+            @error('email')
+                <div class="error">
+                    {{ $message }}
+                </div>
+              @enderror
           </div>
           <div class="password-area">
             <div class="password-label">
               <div class="password-area-text">Senha</div>
               <a href="{{ route('forgot-password') }}" class="password-area-forgot">Esqueceu sua senha?</a>
             </div>
-            <x-form.password-input name="password" placeholder="Digite a sua senha" id="password"/>
+            <x-form.password-input name="password" placeholder="Digite a sua senha" id="password" required />
+            @error('password')
+                <div class="error">
+                    {{ $message }}
+                </div>
+              @enderror
           </div>
           <button class="login-button">Entrar</button>
         </form>
