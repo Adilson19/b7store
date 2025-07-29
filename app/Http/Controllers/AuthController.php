@@ -7,6 +7,7 @@ use Illuminate\Http\Concerns\InteractsWithInput\only;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\State;
 use App\Http\Requests\RegisterRequest;
 
 class AuthController extends Controller
@@ -26,11 +27,15 @@ class AuthController extends Controller
 
         Auth::loginUsingId($user->id);
         return redirect()->route('select-state');
-        dd($user);
 
     }
 
-    public function state_action(Request $request){
-        dd($request);
+    public function select_state(){
+        $data['states'] = State::all();
+        return view('auth.select-state', $data);
+    }
+
+    public function select_state_action(Request $r){
+        dd($r);
     }
 }
