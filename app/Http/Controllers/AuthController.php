@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Http\Requests\RegisterRequest;
 
@@ -23,7 +24,8 @@ class AuthController extends Controller
         $user = User::create($userData);
 
         Auth::loginUsingId($user->id);
-        
+        return redirect()->route('select-state');
+        dd($user);
 
     }
 
